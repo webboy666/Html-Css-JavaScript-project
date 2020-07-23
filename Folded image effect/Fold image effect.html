@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fold image effect</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 360px;
+            width: 640px;
+            display: flex;
+        }
+        ul li {
+            list-style: none;
+            width: 25%;
+            background: url(image/92155.jpg);
+            background-size: cover;
+            height: 100%;
+            transition: .5s;
+
+        }
+        ul:hover li:nth-child(odd) {
+            transform: skewY(15deg);
+            box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5);
+        }
+        ul:hover  li:nth-child(even) {
+            transform: skewY(-15deg);
+            box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5);
+        }
+        ul li:nth-child(1) {
+            background-position: 0;
+        }
+        ul li:nth-child(2) {
+            background-position: 480px; /*pic propertices  ==  orginal pic width 1920 / 4(li) = 480*/
+        }
+        ul li:nth-child(3) {
+            background-position: calc(480px * 2 );
+        }
+        ul li:nth-child(4) {
+            background-position: calc(480px * 3 );
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>
