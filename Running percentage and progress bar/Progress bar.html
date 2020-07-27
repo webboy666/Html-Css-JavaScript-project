@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Progress</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #2e2e2e;
+        }
+
+        div.container {
+            position: relative;
+            width: 80%;
+        }
+
+        .container h1 {
+            color: white;
+        }
+
+        .container .skills {
+            position: relative;
+            display: flex;
+            margin: 20px 0px;
+            padding: 24px 10px 18px;
+            background: linear-gradient(#616161 0%, #333 10%, #222);
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid #000;
+            transition: .5s;
+        }
+
+        .container .skills::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: rgba(255, 255, 255, .1);
+        }
+
+        .container .skills .name {
+            position: relative;
+            width: 110px;
+            text-align: right;
+            color: #fff;
+            margin-top: -2px;
+            text-transform: uppercase;
+        }
+
+        .container .skills .value {
+            position: relative;
+            width: 40px;
+            text-align: left;
+            color: #fff;
+            margin-top: -2px;
+            text-transform: uppercase;
+        }
+
+        .container .skills .percent {
+            position: relative;
+            width: calc(100% - 150px);
+            /* 110px + 40px ==150px */
+            height: 20px;
+            margin: 0px 10px;
+            border-radius: 10px;
+            background: #151515;
+            box-shadow: inset 0 0 10px #000;
+        }
+
+        .container .skills .percent .progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 70%;
+            height: 100%;
+            border-radius: 10px;
+            background: white;
+            box-shadow: inset 0 0 2px #000;
+            animation: animate 5s ease-in-out forwards;
+        }
+
+        @keyframes animate {
+            from {
+                width: 0%;
+            }
+        }
+
+        .container .skills:nth-child(2) .percent .progress {
+            background: linear-gradient(45deg, #1fe6ff, #673AB7);
+        }
+
+        .container .skills:nth-child(3) .percent .progress {
+            background: linear-gradient(45deg, #b0ee06, rgb(255, 209, 3));
+        }
+
+        .container .skills:nth-child(4) .percent .progress {
+            background: linear-gradient(45deg, #5edd09, rgb(223, 16, 136));
+        }
+
+        .container .skills:nth-child(5) .percent .progress {
+            background: linear-gradient(45deg, #07e2ff, rgb(115, 248, 6));
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Skills</h1>
+        <!-- ==============html===================== -->
+        <div class="skills">
+            <span class="name">Html</span>
+            <div class="percent">
+                <div class="progress" style="width: 95%;"> </div>
+            </div>
+            <div class="value">
+                <span id="html">95%</span>
+            </div>
+        </div>
+        <!-- ==============css===================== -->
+        <div class="skills">
+            <span class="name">css</span>
+            <div class="percent">
+                <div class="progress" style="width: 70%;"> </div>
+            </div>
+            <div class="value">
+                <span id="css">70%</span>
+            </div>
+        </div>
+        <!-- ==============javascript===================== -->
+        <div class="skills">
+            <span class="name">javascript</span>
+            <div class="percent">
+                <div class="progress" style="width: 50%;"> </div>
+            </div>
+            <div class="value">
+                <span id="javascript">50%</span>
+            </div>
+        </div>
+        <!-- ==============python===================== -->
+        <div class="skills">
+            <span class="name">python</span>
+            <div class="percent">
+                <div class="progress" style="width: 30%;"> </div>
+            </div>
+            <div class="value">
+                <span id="python">30%</span>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // ====html==========
+        function progress() {
+            var percent = document.getElementById('html');
+            var count = 1;
+            var id = setInterval(frame, 50);
+            function frame() {
+                if (count == 95) {
+                    clearInterval(id);
+                } else {
+                    count += 1;
+                    percent.innerHTML = count + "%";
+                }
+            }
+        }
+        progress();
+    </script>
+    <script>
+        // ========================css==================
+        function progress() {
+            var percent = document.getElementById('css');
+            var count = 1;
+            var id = setInterval(frame, 70);
+            function frame() {
+                if (count == 70) {
+                    clearInterval(id);
+                } else {
+                    count += 1;
+                    percent.innerHTML = count + "%";
+                }
+            }
+        }
+        progress();
+    </script>
+    <!-- ======================javascript=============== -->
+    <script>
+        function progress() {
+            var percent = document.getElementById('javascript');
+            var count = 1;
+            var id = setInterval(frame, 100);
+            function frame() {
+                if (count == 50) {
+                    clearInterval(id);
+                } else {
+                    count += 1;
+                    percent.innerHTML = count + "%";
+                }
+            }
+        }
+        progress();
+    </script>
+    <!-- ===========python=================== -->
+    <script>
+        function progress() {
+            var percent = document.getElementById('python');
+            var count = 1;
+            var id = setInterval(frame, 170);
+            function frame() {
+                if (count == 30) {
+                    clearInterval(id);
+                } else {
+                    count += 1;
+                    percent.innerHTML = count + "%";
+                }
+            }
+        }
+        progress();
+    </script>
+</body>
+
+</html>
